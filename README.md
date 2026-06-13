@@ -3,7 +3,7 @@
 **Contribution Number:** [1]  
 **Student:** [Deep Akbari]  
 **Issue:** [https://github.com/kiwifs/kiwifs/issues/258]  
-**Status:** [Phase I] [In Progress]
+**Status:** [Phase II] [In Progress]
 
 ---
 
@@ -42,7 +42,7 @@ KiwiFS has an agent memory system that stores notes, or "pages," and it already 
 
 ### Environment Setup
 
-[Notes on setting up your local development environment - challenges you faced, how you solved them]
+I forked the repo, created a new branch within the fork and cloned it locally. 
 
 ### Steps to Reproduce
 
