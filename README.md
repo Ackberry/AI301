@@ -3,7 +3,7 @@
 **Contribution Number:** [1]  
 **Student:** [Deep Akbari]  
 **Issue:** [https://github.com/alibaba/open-code-review/issues/136](https://github.com/alibaba/open-code-review/issues/136)
-**Status:** [Phase I] [In Progress]
+**Status:** [Phase II] [Complete]
 
 ---
 
@@ -14,14 +14,23 @@
 ## Understanding the Issue
 
 ### Problem Description
+Currently, open-code-preview supports adding or updating custom providers through:
+- ocr config provider (TUI)
+- ocr config set custom providers.<name>. <field> <value> (non-interactive)
+
+But, there is no way to delete a coustom provider once it is saved.
+
+To remove, users have to edit ~/.opencodereview/config.json and delete the custom_providers.<name> entry 
+by hand. And if deleted provider happens to be the active provider, they also have to manually clear or
+change the provider field, otherwise config resolution throws errors.
 
 ### Expected Behavior
 
-[What should happen?]
+Add a supported way to delete custom providers (TUI/ UI Layer)
 
 ### Current Behavior
 
-[What actually happens?]
+Custom providers can only be deleted manually in code.
 
 ### Affected Components
 
@@ -33,14 +42,12 @@
 
 ### Environment Setup
 
-I forked the repo, created a new branch within the fork and cloned it locally. 
+I forked the repo, followed `CONTRIBUTING.md`'s guidelines to start the dev server, and then created a new branch.
 
 ### Steps to Reproduce
-
-1. [Step 1]
-2. [Step 2]
-3. [Observed result]
-
+1. Forked the repo
+2. Cloned locally
+3. Followed CONTRIBUTING.md's steps to fully clone the repo and run the dev server
 ### Reproduction Evidence
 
 - **Commit showing reproduction:** [Link to commit in your fork]
