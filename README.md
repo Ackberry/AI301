@@ -1,28 +1,19 @@
-# Contribution [#258]: [Add coverage, freshness, and scope metrics to memory report]
+# Contribution [#136]: [Add a way to delete custom providers from configuration]
 
 **Contribution Number:** [1]  
 **Student:** [Deep Akbari]  
-**Issue:** [https://github.com/kiwifs/kiwifs/issues/258]  
-**Status:** [Phase II] [In Progress]
+**Issue:** [https://github.com/alibaba/open-code-review/issues/136](https://github.com/alibaba/open-code-review/issues/136)
+**Status:** [Phase I] [In Progress]
 
 ---
 
 ## Why I Chose This Issue
-
-I chose this issue because:
-- It is beginner friendly. This is my first time contributing open source. I want to tackle an issue good for beginners for easier understanding.
-- Small scope: As a beginner, I want to start with a simple issue, understand different parts of osc and then proceed to challenging ones!
-- Self contained: Does not rely on another parts. I can finish this myself.
-- Cleanly scoped: The issue was written well. It is easy to understand the issue and implement a fix.
-  
 
 ---
 
 ## Understanding the Issue
 
 ### Problem Description
-
-KiwiFS has an agent memory system that stores notes, or "pages," and it already includes a feature that scans through all of those pages and produces a report summarizing what's there. The problem is that this report is currently fairly bare and doesn't tell you much about the overall health of the memory. This issue asks you to enrich that report by adding five new statistics: a coverage percentage showing how much of the memory has been consolidated or processed, the average age in days of the active pages so you can tell whether the memory is fresh or stale, a count of pages that have expired, a count of pages that are contested or in conflict, and a breakdown of how many pages fall under each scope or category. The implementation is straightforward because the code already walks through every memory page when building the report, so you simply add a few more counters during that same pass and then make sure the new numbers appear everywhere the report is shown, namely the command-line output, the web API response, and the MCP tool response.
 
 ### Expected Behavior
 
