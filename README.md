@@ -2,7 +2,7 @@
 
 **Contribution Number:** [2]  
 **Student:** [Deep Akbari]  
-**Issue:** [https://github.com/GoogleCloudPlatform/khi/issues/827]([text](https://github.com/GoogleCloudPlatform/khi/issues/827))
+**Issue:** [https://github.com/GoogleCloudPlatform/khi/issues/827](https://github.com/GoogleCloudPlatform/khi/issues/827)
 
 ---
 
