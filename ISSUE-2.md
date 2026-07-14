@@ -50,7 +50,7 @@ I forked the repo, followed `CONTRIBUTING.md`'s guidelines to start the dev serv
 I don't have a commit to show "reproduction", but have commits to show one-by-one enhancements. Here: [Commit Link](https://github.com/google/go-github/pull/4379/changes/6dbc3f4ec0a62509ab49552654de33f46d50abe6) 
 
 - **Screenshots/logs:** [If applicable]
-Screenshots while I was working:
+not applicable.
 
 
 - **My findings:** [What you discovered during reproduction]
