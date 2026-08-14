@@ -30,13 +30,76 @@ The repo does not have defined endpoints for copilot spaces.
 `copilot_test.go` : Added tests with edgecases for the same methods
 
 ---
-
 ## Reproduction Process
-It was not a bug, but an enhancement/feature. I added the feature rather than removing anything. 
 
-### Environment Setup
+This issue was not an existing bug that caused incorrect behavior. It was a missing feature in `go-github`. GitHub had introduced the Copilot Spaces REST API, but `go-github` did not yet provide methods for accessing the core organization Copilot Spaces endpoints.
 
-I forked the repo, followed `CONTRIBUTING.md`'s guidelines to start the dev server, which involved cloning locally, and then running some scripts before commits. 
+The reproduction process therefore focused on confirming that Copilot Spaces functionality was missing from the library and identifying the files and functions where the new support needed to be implemented.
+
+### Environment to Reproduce
+
+* **Machine:** MacBook Air M4
+* **Operating System:** macOS
+* **Language:** Go
+* **Repository:** `google/go-github`
+* **Primary implementation file:** `github/copilot.go`
+* **Primary test file:** `github/copilot_test.go`
+* **Development setup:** Local clone of my fork of `google/go-github`
+* **Reference:** GitHub's official Copilot Spaces REST API documentation
+
+### Steps to Reproduce
+
+1. Fork the `google/go-github` repository and clone the fork locally onto the MacBook.
+
+2. Follow the repository setup and development instructions provided in `CONTRIBUTING.md`.
+
+3. Open `github/copilot.go`. This file contains the existing `CopilotService` type and methods for interacting with GitHub's other Copilot APIs.
+
+4. Search `github/copilot.go` for organization Copilot Spaces functionality.
+
+5. Specifically search for the following expected methods:
+
+   * `ListOrganizationCopilotSpaces`
+   * `GetOrganizationCopilotSpace`
+   * `CreateOrganizationCopilotSpace`
+   * `UpdateOrganizationCopilotSpace`
+   * `DeleteOrganizationCopilotSpace`
+
+6. Confirm that none of these methods exist in the codebase before applying the changes from this PR.
+
+7. Open `github/copilot_test.go`, which contains unit tests for the existing methods on `CopilotService`.
+
+8. Search the test file for Copilot Spaces tests and confirm that there are no tests for the five organization Copilot Spaces operations.
+
+9. Compare the missing functionality in `go-github` with GitHub's official Copilot Spaces REST API documentation. GitHub provides API endpoints for listing, getting, creating, updating, and deleting organization Copilot Spaces, but there were no corresponding Go methods in `go-github`.
+
+10. Identify `github/copilot.go` as the file where the new API models and methods should be added because Copilot Spaces belongs to the existing `CopilotService`.
+
+11. Identify `github/copilot_test.go` as the appropriate location for unit tests because it contains the existing tests for `CopilotService`.
+
+12. After implementing the feature, verify that `github/copilot.go` now contains the five new Copilot Spaces methods and their supporting structs.
+
+13. Verify that `github/copilot_test.go` now contains the corresponding test functions:
+
+    * `TestCopilotService_ListOrganizationCopilotSpaces`
+    * `TestCopilotService_GetOrganizationCopilotSpace`
+    * `TestCopilotService_CreateOrganizationCopilotSpace`
+    * `TestCopilotService_UpdateOrganizationCopilotSpace`
+    * `TestCopilotService_DeleteOrganizationCopilotSpace`
+
+14. Run the repository's required tests, linting, and generation checks from `CONTRIBUTING.md` to verify that the new implementation follows the project's standards.
+
+### Reproduction Results
+
+Before my changes, `go-github` already provided several GitHub Copilot operations through `CopilotService`, but it did not provide methods for the core organization Copilot Spaces API.
+
+The missing functionality was primarily located in:
+
+* `github/copilot.go` — missing Copilot Spaces structs and API methods.
+* `github/copilot_test.go` — missing tests for the Copilot Spaces methods.
+
+After my implementation, `CopilotService` supports the five core organization Copilot Spaces operations: list, get, create, update, and delete. Corresponding unit tests were also added to verify the HTTP methods, request paths, request/response structures, parameters, and error handling.
+
 
 ### Steps to Reproduce
 1. Forked the repo
